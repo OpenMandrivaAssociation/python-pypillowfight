@@ -6,6 +6,7 @@ License:	GPLv2
 Group:		Development/Python
 Source0:	https://files.pythonhosted.org/packages/source/p/pypillowfight/pypillowfight-%{version}.tar.gz
 URL:		https://pypi.org/project/pypillowfight/
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(nose)
 BuildRequires:	python%{pyver}dist(pip)
 
