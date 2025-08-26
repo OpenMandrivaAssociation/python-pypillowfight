@@ -1,7 +1,7 @@
 Summary:	Library containing various image processing algorithms
 Name:		python-pypillowfight
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Development/Python
 Source0:	https://files.pythonhosted.org/packages/source/p/pypillowfight/pypillowfight-%{version}.tar.gz
