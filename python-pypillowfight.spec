@@ -1,30 +1,32 @@
-Summary:	Library containing various image processing algorithms
+%define module pypillowfight
+%define oname libpillowfight
+
 Name:		python-pypillowfight
-Version:	0.3.0
-Release:	4
-License:	GPLv2
+Summary:	Library containing various image processing algorithms
+Version:	0.3.1
+Release:	1
+License:	GPL-2.0-or-later
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/p/pypillowfight/pypillowfight-%{version}.tar.gz
-URL:		https://pypi.org/project/pypillowfight/
+URL:		https://gitlab.gnome.org/World/OpenPaperwork/libpillowfight
+Source0:	%{URL}/-/archive/%{version}/libpillowfight-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+BuildSystem:	python
+BuildRequires:	make
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(nose)
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(pillow)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
 
 %description
-Library containing various image processing algorithms
-
-%files
-%{py_platsitedir}/pillowfight
-%{py_platsitedir}/pypillowfight-*.*-info
-
-#----------------------------------------------------------------------
+Library containing various image processing algorithms.
 
 %prep
-%autosetup -p1 -n pypillowfight-%{version}
+%autosetup -n %{oname}-%{version} -p1
+echo "#define INTERNAL_PILLOWFIGHT_VERSION \"%{version}\"" > src/pillowfight/_version.h
 
-%build
-%py_build
-
-%install
-%py_install
-
+%files
+%doc README.md
+%license LICENSE
+%{python_sitearch}/pillowfight
+%{python_sitearch}/%{module}-%{version}*.*-info
